@@ -13,7 +13,7 @@ h1 {
     background-color: khaki;
     margin-left: 7.5%;
     margin-top: 2%;
-    padding-bottom: 38%;
+    padding-bottom: 27%;
 }
 
 #start {
@@ -22,8 +22,14 @@ h1 {
     border-style: solid;
     border-color: #727275;
     margin: 0;
-    bottom: 300px;
+    bottom: 350px;
     position: relative;
     left: 33%;
+    text-align: center;
+}
+
+#timeremaining {
+    font-size: x-large;
+    margin-top: 10%;
     text-align: center;
 }
