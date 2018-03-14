@@ -1,0 +1,26 @@
+body {
+    background-image: url("../images/troutwallpaper.jpg");
+}
+
+h1 {
+    text-align: center;
+    font-size: 92px;
+    margin-top: 1%;
+}
+
+#maincontainer {
+    background-color: khaki;
+    margin-left: 7.5%;
+    margin-top: 2%;
+    padding-bottom: 15%;
+}
+
+#start {
+    background-color: #CD425F;
+    color: white;
+    border-style: solid;
+    border-color: #727275;
+    margin-top: 20%;
+    margin-left: 35%;
+    text-align: center;
+}
