@@ -84,7 +84,7 @@ var questionList = [
         correctAnswer: "b"
     },
     {
-        question: "How large was the rod and reel record lake trout",
+        question: "How large was the rod and reel record lake trout?",
         answers: {
             a: "72 pounds",
             b: "33 pounds",
@@ -94,7 +94,7 @@ var questionList = [
         correctAnswer: "a"
     },
     {
-        question: "What is the scientific name for rainbow trout",
+        question: "What is the scientific name for rainbow trout?",
         answers: {
             a: "Salvelinus fontinalis",
             b: "Oncorhynchus mykiss",
@@ -102,6 +102,16 @@ var questionList = [
             d: "Cyprinus carpio",
         },
         correctAnswer: "b"
+    },
+    {
+        question: "A trout's swim bladder helps it do what?",
+        answers: {
+            a: "Urinate",
+            b: "Hold air as an oxygen reserve",
+            c: "Float",
+            d: "Prevent infections",
+        },
+        correctAnswer: "c"
     },
 
 ];
