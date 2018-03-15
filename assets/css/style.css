@@ -29,7 +29,14 @@ h1 {
 }
 
 #timeremaining {
-    font-size: x-large;
-    margin-top: 10%;
+    font-size: large;
+    margin-top: 8%;
     text-align: center;
+}
+
+#question {
+    font-size: x-large;
+    margin-top: 2%;
+    text-align: center;
+
 }

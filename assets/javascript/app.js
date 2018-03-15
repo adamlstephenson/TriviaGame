@@ -2,7 +2,7 @@
 //=============================================================
 $("document").ready(function() {
 
-var timeRemaining;
+var timeRemaining = 10;
 var questionArray = [];
 var answerArray = [];
 var correctAnswers;
@@ -116,16 +116,44 @@ var questionList = [
 
 ];
 
+for (i = 0; i < questionList.length; i++) {
+    console.log(i);
+    let obj = questionList[i];
+    console.log(questionList.question);
+}
+
 
 $("#start").on("click", function() {
     $("#start").hide();
     $("#timeremaining").text("Time Remaining: " + timeRemaining + " Seconds");
-    // show question
+    $("#question").text(questionList[0].question);
+    $("#answers").text(questionList[0].answers);
     // show answer options
 
 });
 
-
-
-
 });
+
+// General Process
+// =================================================================
+
+/*
+
+1. Page loads with start button
+2. Start button disappears
+3. Game begins
+    a. Timer starts
+        b. if expired - lose
+    b. Question appears
+    c. answers choices appear
+4. Player chooses answer
+    a. if correct - alert, display correct answer (maybe photo), add to correct total
+    b. if wrong - alert, display correct answer (maybe photo), add to incorrect list
+5. Wait 7 seconds
+6. Go to next question
+7. Repeat game again
+8. After 10 questions
+    a. Show how they did - correct, incorrect, unanswered
+    b. Click option to restart game without refreshing
+
+    */
