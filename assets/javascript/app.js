@@ -9,6 +9,7 @@ var correctAnswers;
 var incorrectAnswers;
 var unanswered;
 
+var timeRemaining = 30;
 var questionTimer = setInterval(function(){
     console.log(timeRemaining);
     timeRemaining--;
@@ -20,16 +21,11 @@ var questionTimer = setInterval(function(){
 // Question/Answer Objects
 // =============================================================
 
-var questionList = [
-    {
+var questionList = [{
         question: "What is the only species of trout native to Minnesota?",
-        answers: {
-            a: "Brook Trout",
-            b: "Rainbow Trout",
-            c: "Brown Trout",
-            d: "Cutthroat Trout",
+        answers: ["Brook Trout", "Rainbow Trout", "Brown Trout","Cutthroat Trout"],
+        correctAnswer: 0
         },
-    },
     {
         question: "Which species is a hybrid cross between a female brown trout and a male brook trout",
         answers: {
@@ -116,17 +112,17 @@ var questionList = [
 
 correctAnswers = ['a', 'c', 'c', 'b', 'd', 'd', 'b', 'a', 'b', 'c']
 
-for (i = 0; i < questionList.length; i++) {
+for (i = 0; i < questionList.answers; i++) {
     console.log(i);
-    let obj = questionList[i];
-    console.log(questionList.question);
+    let obj = answers[i];
+    console.log(questionList.answers);
 }
 
 
 $("#start").on("click", function() {
     $("#start").hide();
-    $("#timeremaining").text("Time Remaining: " + questionTimer + " seconds");
-    $("#question").text(questionList[0].question);
+    $("#timeremaining").text("Time Remaining: " + timeRemaining + " seconds");
+    $("#questions").text(questionList[0].question);
     $("#answers").text(questionList[0].answers);
     // show answer options
 
