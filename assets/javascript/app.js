@@ -21,7 +21,6 @@ var questionList = [
             c: "Brown Trout",
             d: "Cutthroat Trout",
         },
-        correctAnswer: "a"
     },
     {
         question: "Which species is a hybrid cross between a female brown trout and a male brook trout",
@@ -31,7 +30,6 @@ var questionList = [
             c: "Tiger Trout",
             d: "Bull Trout",
         },
-        correctAnswer: "c"
     },
     {
         question: "When do brown trout spawn?",
@@ -41,7 +39,6 @@ var questionList = [
             c: "Fall",
             d: "Winter",
         },
-        correctAnswer: "c"
     },
     {
         question: "A trout's age can be determined by what feature?",
@@ -51,7 +48,6 @@ var questionList = [
             c: "Length",
             d: "Adipose fin",
         },
-        correctAnswer: "b"
     },
     {
         question: "Trout lay their eggs in nests called what?",
@@ -61,7 +57,6 @@ var questionList = [
             c: "Incubators",
             d: "Redds",
         },
-        correctAnswer: "d"
     },
     {
         question: "Brown trout can be found in which country?",
@@ -71,7 +66,6 @@ var questionList = [
             c: "Zimbabwe",
             d: "All of the above",
         },
-        correctAnswer: "d"
     },
     {
         question: "What is the largest species of trout in the world?",
@@ -81,7 +75,6 @@ var questionList = [
             c: "Steelhead",
             d: "Tiger Trout",
         },
-        correctAnswer: "b"
     },
     {
         question: "How large was the rod and reel record lake trout?",
@@ -91,7 +84,6 @@ var questionList = [
             c: "96 pounds",
             d: "21 pounds",
         },
-        correctAnswer: "a"
     },
     {
         question: "What is the scientific name for rainbow trout?",
@@ -101,7 +93,6 @@ var questionList = [
             c: "Salmo trutta",
             d: "Cyprinus carpio",
         },
-        correctAnswer: "b"
     },
     {
         question: "A trout's swim bladder helps it do what?",
@@ -111,10 +102,11 @@ var questionList = [
             c: "Float",
             d: "Prevent infections",
         },
-        correctAnswer: "c"
     },
 
 ];
+
+correctAnswers = ['a', 'c', 'c', 'b', 'd', 'd', 'b', 'a', 'b', 'c']
 
 for (i = 0; i < questionList.length; i++) {
     console.log(i);
