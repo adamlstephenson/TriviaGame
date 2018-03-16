@@ -2,12 +2,20 @@
 //=============================================================
 $("document").ready(function() {
 
-var timeRemaining = 10;
+var timeRemaining = 30;
 var questionArray = [];
 var answerArray = [];
 var correctAnswers;
 var incorrectAnswers;
 var unanswered;
+
+var questionTimer = setInterval(function(){
+    console.log(timeRemaining);
+    timeRemaining--;
+    if (timeRemaining === 0) {
+        clearInterval(questionTimer)
+    }
+  }, 1000);
 
 // Question/Answer Objects
 // =============================================================
@@ -117,7 +125,7 @@ for (i = 0; i < questionList.length; i++) {
 
 $("#start").on("click", function() {
     $("#start").hide();
-    $("#timeremaining").text("Time Remaining: " + timeRemaining + " Seconds");
+    $("#timeremaining").text("Time Remaining: " + questionTimer + " seconds");
     $("#question").text(questionList[0].question);
     $("#answers").text(questionList[0].answers);
     // show answer options
