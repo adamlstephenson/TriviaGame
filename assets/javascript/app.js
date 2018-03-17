@@ -8,6 +8,7 @@ var answerArray = [];
 var correctAnswers;
 var incorrectAnswers;
 var unanswered;
+var currentQuestion = 0;
 
 var timeRemaining = 30;
 var questionTimer = setInterval(function(){
@@ -23,112 +24,103 @@ var questionTimer = setInterval(function(){
 
 var questionList = [{
         question: "What is the only species of trout native to Minnesota?",
-        answers: ["Brook Trout", "Rainbow Trout", "Brown Trout","Cutthroat Trout"],
+        answers: ["Brook Trout", "Rainbow Trout", "Brown Trout", "Cutthroat Trout"],
         correctAnswer: 0
         },
     {
         question: "Which species is a hybrid cross between a female brown trout and a male brook trout",
-        answers: {
-            a: "Gila Trout",
-            b: "Golden Trout",
-            c: "Tiger Trout",
-            d: "Bull Trout",
+        answers: ["Gila Trout", "Golden Trout", "Tiger Trout", "Bull Trout"],
+        correctAnswer: 2
         },
-    },
     {
         question: "When do brown trout spawn?",
-        answers: {
-            a: "Spring",
-            b: "Summer",
-            c: "Fall",
-            d: "Winter",
+        answers: ["Spring", "Summer", "Fall", "Winter"],
+        correctAnswer: 2
         },
-    },
     {
         question: "A trout's age can be determined by what feature?",
-        answers: {
-            a: "Colorization",
-            b: "Scales",
-            c: "Length",
-            d: "Adipose fin",
-        },
+        answers: ["Colorization", "Scales", "Length", "Adipose fin"],
+        correctAnswer: 1
     },
     {
         question: "Trout lay their eggs in nests called what?",
-        answers: {
-            a: "Cribs",
-            b: "Beds",
-            c: "Incubators",
-            d: "Redds",
-        },
+        answers: ["Cribs", "Beds","Incubators","Redds"],
+        correctAnswer: 3
     },
     {
         question: "Brown trout can be found in which country?",
-        answers: {
-            a: "Sri Lanka",
-            b: "Argentina",
-            c: "Zimbabwe",
-            d: "All of the above",
-        },
+        answers: ["Sri Lanka", "Argentina", "Zimbabwe", "All of the above"],
+        correctAnswer: 3
     },
     {
         question: "What is the largest species of trout in the world?",
-        answers: {
-            a: "Bull Trout",
-            b: "Taimen",
-            c: "Steelhead",
-            d: "Tiger Trout",
+        answers: ["Bull Trout", "Taimen", "Steelhead", "Tiger Trout"],
+        correctAnswer: 1
         },
-    },
     {
         question: "How large was the rod and reel record lake trout?",
-        answers: {
-            a: "72 pounds",
-            b: "33 pounds",
-            c: "96 pounds",
-            d: "21 pounds",
+        answers: ["72 pounds", "33 pounds", "96 pounds", "21 pounds"],
+        correctAnswer: 0
         },
-    },
     {
         question: "What is the scientific name for rainbow trout?",
-        answers: {
-            a: "Salvelinus fontinalis",
-            b: "Oncorhynchus mykiss",
-            c: "Salmo trutta",
-            d: "Cyprinus carpio",
-        },
+        answers: ["Salvelinus fontinalis", "Oncorhynchus mykiss", "Salmo trutta", "Cyprinus carpio"],
+        correctAnswer: 1
     },
     {
         question: "A trout's swim bladder helps it do what?",
-        answers: {
-            a: "Urinate",
-            b: "Hold air as an oxygen reserve",
-            c: "Float",
-            d: "Prevent infections",
+        answers: ["Urinate", "Hold air as an oxygen reserve", "Float", "Prevent infections"],
+        correctAnswer: 2
         },
-    },
 
 ];
 
-correctAnswers = ['a', 'c', 'c', 'b', 'd', 'd', 'b', 'a', 'b', 'c']
+//correctAnswers = ['a', 'c', 'c', 'b', 'd', 'd', 'b', 'a', 'b', 'c']
 
-for (i = 0; i < questionList.answers; i++) {
-    console.log(i);
-    let obj = answers[i];
-    console.log(questionList.answers);
+// for (i = 0; i < questionList.answers; i++) {
+//     console.log(i);
+//     let obj = answers[i];
+//     console.log(questionList.answers);
+// }
+
+function chooseQuestion() {
+    question = questionList[currentQuestion].question;
+    answers =  questionList[currentQuestion].answers;
+    
 }
 
 
 $("#start").on("click", function() {
     $("#start").hide();
-    $("#timeremaining").text("Time Remaining: " + timeRemaining + " seconds");
-    $("#questions").text(questionList[0].question);
-    $("#answers").text(questionList[0].answers);
+
+    $("#timeremaining").text("Time Remaining: " + questionTimer + " seconds");
+   // $("#questions").text(questionList[0].question);
+
+    for(i = 0; i < questionList.length; i++) {
+        console.log(i);
+        questionYo = JSON.stringify(questionList[i].question);
+        $("<p>")
+        .attr("id", questionYo)
+        .text(questionYo)
+        .appendTo($("#questions"))  
+        
+        answerYo = JSON.stringify(questionList[i].answers);
+        $("<p>")
+        .attr("id", answerYo)
+        .text(answerYo)
+        .appendTo($("#questions"))
+
+    }
+
+    //$("#answers").text(questionList[0].answers.join(" "));
     // show answer options
 
+
+
 });
 
 });
+
 
 // General Process
 // =================================================================

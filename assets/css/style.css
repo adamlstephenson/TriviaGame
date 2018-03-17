@@ -34,9 +34,13 @@ h1 {
     text-align: center;
 }
 
-#question {
+#questions {
     font-size: x-large;
     margin-top: 2%;
     text-align: center;
 
+}
+
+#answers {
+    margin-top: 10%;
 }
