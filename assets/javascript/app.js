@@ -77,25 +77,10 @@ var questionList = [{
 
 //correctAnswers = ['a', 'c', 'c', 'b', 'd', 'd', 'b', 'a', 'b', 'c']
 
-// for (i = 0; i < questionList.answers; i++) {
-//     console.log(i);
-//     let obj = answers[i];
-//     console.log(questionList.answers);
-// }
+// Functions
+//==================================================
 
-function chooseQuestion() {
-    question = questionList[currentQuestion].question;
-    answers =  questionList[currentQuestion].answers;
-    
-}
-
-
-$("#start").on("click", function() {
-    $("#start").hide();
-
-    $("#timeremaining").text("Time Remaining: " + questionTimer + " seconds");
-   // $("#questions").text(questionList[0].question);
-
+function showQuestions() {
     for(i = 0; i < questionList.length; i++) {
         console.log(i);
         questionYo = JSON.stringify(questionList[i].question);
@@ -103,23 +88,25 @@ $("#start").on("click", function() {
         .attr("id", questionYo)
         .text(questionYo)
         .appendTo($("#questions"))  
-        
-        answerYo = JSON.stringify(questionList[i].answers);
+        answerYo = JSON.stringify(questionList[i].answers.join(" "));
         $("<p>")
+        .addClass("answersYo")
         .attr("id", answerYo)
         .text(answerYo)
         .appendTo($("#questions"))
-
     }
+};
 
-    //$("#answers").text(questionList[0].answers.join(" "));
-    // show answer options
-
-
+// Game Process
+//======================================================
+$("#start").on("click", function() {
+    $("#start").hide();
+    $("#timeremaining").text("Time Remaining: " + questionTimer + " seconds");
+    showQuestions();
+})
 
 });
 
-});
 
 
 // General Process

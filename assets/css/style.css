@@ -41,6 +41,8 @@ h1 {
 
 }
 
-#answers {
-    margin-top: 10%;
+.answersYo {
+   font-size: medium;
+   margin-top: 2%;
+   margin-bottom: 2%;
 }
