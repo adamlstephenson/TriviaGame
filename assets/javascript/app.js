@@ -14,7 +14,7 @@ var timeRemaining = 30;
 var questionTimer = setInterval(function(){
     console.log(timeRemaining);
     timeRemaining--;
-    if (timeRemaining === 0) {
+    if (timeRemaining <= 0) {
         clearInterval(questionTimer)
     }
   }, 1000);
@@ -82,20 +82,34 @@ var questionList = [{
 
 function showQuestions() {
     for(i = 0; i < questionList.length; i++) {
-        console.log(i);
-        questionYo = JSON.stringify(questionList[i].question);
+        questionToPrint = questionList[i].question.toString();
         $("<p>")
-        .attr("id", questionYo)
-        .text(questionYo)
+        .text(questionToPrint)
         .appendTo($("#questions"))  
-        answerYo = JSON.stringify(questionList[i].answers.join(" "));
-        $("<p>")
+        answerToPrint = (questionList[i].answers)
+        console.log(answerToPrint)
+        $("<button>")
         .addClass("answersYo")
-        .attr("id", answerYo)
-        .text(answerYo)
+        .text(answerToPrint[0])
+        .appendTo($("#questions"))
+        $("<button>")
+        .addClass("answersYo")
+        .text(answerToPrint[1])
+        .appendTo($("#questions"))
+        $("<button>")
+        .addClass("answersYo")
+        .text(answerToPrint[2])
+        .appendTo($("#questions"))
+        $("<button>")
+        .addClass("answersYo")
+        .text(answerToPrint[3])
         .appendTo($("#questions"))
     }
 };
+
+function makeButtons() {
+    $(".answersYo");
+}
 
 // Game Process
 //======================================================
@@ -104,6 +118,8 @@ $("#start").on("click", function() {
     $("#timeremaining").text("Time Remaining: " + questionTimer + " seconds");
     showQuestions();
 })
+
+
 
 });
 
