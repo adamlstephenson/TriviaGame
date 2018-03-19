@@ -13,6 +13,7 @@ var choiceB;
 var choiceC; 
 var choiceD;
 var correct = 0;
+var incorrect = 0;
 
 var questionList = [{
     question: "What is the only species of trout native to Minnesota?",
@@ -67,24 +68,9 @@ var questionList = [{
 
 ];
 
-// var questions = [
-//     ["What is the only species of trout native to Minnesota?", "Brook Trout", "Rainbow Trout", "Brown Trout", "Cutthroat Trout", "A"],
-//     ["Which species is a hybrid cross between a female brown trout and a male brook trout", "Gila Trout", "Golden Trout", "Tiger Trout", "Bull Trout", "C"],
-//     ["When do brown trout spawn?", "Spring", "Summer", "Fall", "Winter", "C"],
-//     ["A trout's age can be determined by what feature?", "Colorization", "Scales", "Length", "Adipose fin", "B"],
-//     ["Trout lay their eggs in nests called what?", "Cribs", "Beds","Incubators","Redds", "D"],
-//     ["Brown trout can be found in which country?", "Sri Lanka", "Argentina", "Zimbabwe", "All of the above", "D"],
-//     ["What is the largest species of trout in the world?", "Bull Trout", "Taimen", "Steelhead", "Tiger Trout", "B"],
-//     ["How large was the rod and reel record lake trout?", "72 pounds", "33 pounds", "96 pounds", "21 pounds", "A"],
-//     ["What is the scientific name for rainbow trout?", "Salvelinus fontinalis", "Oncorhynchus mykiss", "Salmo trutta", "Cyprinus carpio", "C"],
-//     ["A trout's swim bladder helps it do what?", "Urinate", "Hold air as an oxygen reserve", "Float", "Prevent infections", "C"]
-
-// ];
-
 function showQuestion () {
     for(i = 0; i < questionList.length; i++) {
     question = questionList[0].question.toString();
-    console.log(question);
     answer = questionList[0].answers;
     rightAnswer = questionList[0].correctAnswer;
         choiceA = answer[0];
@@ -93,9 +79,9 @@ function showQuestion () {
         choiceD = answer[3];
     $("#questions").html("<h3>" + question + "</h3>")
     $("#q1").html("<input type='radio' name = 'choices' value='A'> " + choiceA + "<br>");
-    $("#q2").html("<input type='radio' name = 'choices' value='A'> " + choiceB + "<br>");
-    $("#q3").html("<input type='radio' name = 'choices' value='A'> " + choiceC + "<br>");
-    $("#q4").html("<input type='radio' name = 'choices' value='A'> " + choiceD + "<br>");
+    $("#q2").html("<input type='radio' name = 'choices' value='B'> " + choiceB + "<br>");
+    $("#q3").html("<input type='radio' name = 'choices' value='C'> " + choiceC + "<br>");
+    $("#q4").html("<input type='radio' name = 'choices' value='D'> " + choiceD + "<br>");
     $("#submit").html("<input type='submit'>");
 
 }
@@ -105,23 +91,20 @@ function checkAnswer() {
     $("#submit").on("click", function() {
     choices = document.getElementsByName("choices");
         for(j = 0; j < choices.length; j++) {
-            if (choices[i].checked) {
-                choice = choices[i].value;
+            if (choices[j].checked) {
+                choice = choices[j].value;
             }
         }
         console.log(choice)
         if (choice === rightAnswer) {
             correct++;
         }
+        else {
+            incorrect++;
+        }
 
     })
 }
-
-
-
-
-
-
 
 
 
@@ -158,9 +141,6 @@ $("#start").on("click", function() {
 // // Question/Answer Objects
 // // =============================================================
 
-
-
-// // correctAnswers = ['a', 'c', 'c', 'b', 'd', 'd', 'b', 'a', 'b', 'c']
 
 // // Functions
 // //==================================================
