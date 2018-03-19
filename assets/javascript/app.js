@@ -2,7 +2,18 @@
 //=============================================================
 $("document").ready(function() {
 
-var position = 0; test, test_status, question, choice, choices, choiceA, choiceB, choiceC, choiceD, correct = 0;
+var position = 0; 
+var test;
+var test_status; 
+var question;
+var choice; 
+var choices;
+var choiceA;
+var choiceB;
+var choiceC; 
+var choiceD;
+var correct = 0;
+
 var questions = [
     ["What is the only species of trout native to Minnesota?", "Brook Trout", "Rainbow Trout", "Brown Trout", "Cutthroat Trout", "A"],
     ["Which species is a hybrid cross between a female brown trout and a male brook trout", "Gila Trout", "Golden Trout", "Tiger Trout", "Bull Trout", "C"],
@@ -15,10 +26,24 @@ var questions = [
     ["What is the scientific name for rainbow trout?", "Salvelinus fontinalis", "Oncorhynchus mykiss", "Salmo trutta", "Cyprinus carpio", "C"],
     ["A trout's swim bladder helps it do what?", "Urinate", "Hold air as an oxygen reserve", "Float", "Prevent infections", "C"]
 
-
-
 ];
 
+function showQuestion () {
+    for(i = 0; i < questions.length; i++) {
+    question = questions[0];
+    console.log(question);
+        choiceA = questions[1];
+        choiceB = questions[2];
+        choiceC = questions[3];
+        choiceD = questions[4];
+    $("#questions").html("<h3>" + question + "</h3>")
+    $("#q1").html("<input type='radio' name = 'choices value='A'> " + choiceA + "<br>");
+    $("#q2").html("<input type='radio' name = 'choices value='A'> " + choiceB + "<br>");
+    $("#q3").html("<input type='radio' name = 'choices value='A'> " + choiceC + "<br>");
+    $("#q4").html("<input type='radio' name = 'choices value='A'> " + choiceD + "<br>");
+
+}
+}
 
 
 
@@ -29,6 +54,11 @@ var questions = [
 
 
 
+$("#start").on("click", function() {
+    $("#start").hide();
+   // $("#timeremaining").text("Time Remaining: " + questionTimer + " seconds");
+    showQuestion();
+        })
 
 
 
@@ -143,16 +173,9 @@ var questions = [
 //     }
 // };
 
-// // Game Process
-// //======================================================
-// $("#start").on("click", function() {
-//     $("#start").hide();
-//     $("#timeremaining").text("Time Remaining: " + questionTimer + " seconds");
-//     showQuestions();
-//         $("button").on("click", function(event) {
-//             var selectedAnswer = event;
-//             console.log(selectedAnswer)
-//         })
+// Game Process
+//======================================================
+
 // })
 
 
