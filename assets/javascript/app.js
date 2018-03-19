@@ -1,6 +1,7 @@
-// Global variables
-//=============================================================
 $("document").ready(function() {
+
+// Global variables
+//============================================================
 
 var position = 0;
 var test;
@@ -69,6 +70,17 @@ var questionList = [{
 
 ];
 
+var questionTimer = setInterval(function(){
+    console.log(timeRemaining);
+    timeRemaining--;
+    if (timeRemaining <= 0) {
+        clearInterval(questionTimer)
+    }
+  }, 1000);
+
+// Functions
+//==============================================================================================
+
 function showQuestion () {
     if(position >= questionList.length) {
         $("#timeremaining").hide();
@@ -79,6 +91,10 @@ function showQuestion () {
         $("#submit").hide();
         $("#questions").text("You got " + correct + " questions right and " + incorrect + " wrong.");
         $("#startover").html("<h3>Start Over</h3>");
+        position = 0;
+        correct = 0;
+        incorrect = 0;
+        return false;
     }
     for(i = 0; i < questionList.length; i++) {
     question = questionList[position].question.toString();
@@ -121,15 +137,12 @@ function checkAnswer() {
     })
 }
 
-var questionTimer = setInterval(function(){
-    console.log(timeRemaining);
-    timeRemaining--;
-    if (timeRemaining <= 0) {
-        clearInterval(questionTimer)
+    function gameReset() {
+        
     }
-  }, 1000);
 
-
+// Game Process
+//====================================================================================
 
 
 $("#start").on("click", function() {
@@ -137,44 +150,18 @@ $("#start").on("click", function() {
    $("#timeremaining").text("Time Remaining: " + timeRemaining + " seconds");
     showQuestion();
     checkAnswer();
-        })
+})
+
+$(("#startover")).on("click", function() {
+    $("#startover").hide();
+    showQuestion();
+    
+
+});
 
 
 });
 
-// var timeRemaining = 30;
-// var questionArray = [];
-// var answerArray = [];
-// var correctAnswers;
-// var incorrectAnswers;
-// var unanswered;
-// var currentQuestion = 0;
-
-
-
-// // Question/Answer Objects
-// // =============================================================
-
-
-// // Functions
-// //==================================================
-
-
-// Game Process
-//======================================================
-
-// })
-
-
-
-// });
-
-
-
-// // General Process
-// // =================================================================
-
-// /*
 
 // 1. Page loads with start button
 // 2. Start button disappears
