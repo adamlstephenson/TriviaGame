@@ -84,7 +84,7 @@ function showQuestion () {
         position = 0;
         correct = 0;
         incorrect = 0;
-       
+        return false;
     }
     for(i = 0; i < questionList.length; i++) {
     question = questionList[position].question.toString();
@@ -137,7 +137,7 @@ function checkAnswer() {
             $("#q3").hide();
             $("#q4").hide();
             $("#submit").hide();
-            $("#questions").text("You got " + correct + " questions right and " + incorrect + " wrong.");
+            $("#answers").text("You got " + correct + " questions right and " + incorrect + " wrong.");
             $("#startover").html("<h3>Start Over</h3>");
             return false;
         }
