@@ -95,6 +95,7 @@ function showQuestion () {
     $("#q2").html("<input type='radio' name = 'choices value='A'> " + choiceB + "<br>");
     $("#q3").html("<input type='radio' name = 'choices value='A'> " + choiceC + "<br>");
     $("#q4").html("<input type='radio' name = 'choices value='A'> " + choiceD + "<br>");
+    $("#submit").html("<input type='submit'>");
 
 }
 }
