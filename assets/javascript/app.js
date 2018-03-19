@@ -4,8 +4,6 @@ $("document").ready(function() {
 //============================================================
 
 var position = 0;
-var test;
-var test_status; 
 var question;
 var choice; 
 var choices;
@@ -146,6 +144,14 @@ function checkAnswer() {
         $("#timeremaining").text("Time Remaining: " + timeRemaining + " seconds");
     }
 
+    function reset() {
+        $(("#startover")).on("click", function() {
+            $("#startover").hide();
+            showQuestion(); 
+        })
+    };
+
+
 // Game Process
 //====================================================================================
 
@@ -156,14 +162,8 @@ $("#start").on("click", function() {
     counter = setInterval(timer, 1000);
     showQuestion();
     checkAnswer();
-})
-
-$(("#startover")).on("click", function() {
-    $("#startover").hide();
-    showQuestion();
+    reset();
     
-
-});
-
+})
 
 });

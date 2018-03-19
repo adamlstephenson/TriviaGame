@@ -1,9 +1,10 @@
 body {
     background-image: url("../images/troutwallpaper.jpg");
-    font-family: 'Ultra', serif;
+    font-family: 'Francois One', sans-serif;
 }
 
 h1 {
+    font-family: 'Ultra', serif;
     text-align: center;
     font-size: 86px;
     margin-top: 1%;
@@ -17,9 +18,10 @@ h1 {
 }
 
 #maincontainer {
-    background-color: wheat;
+    background-color: lemonchiffon;
     margin-left: 7.5%;
     margin-top: 2%;
+    margin-bottom: 5%;
     padding-bottom: 27%;
 }
 
@@ -37,7 +39,8 @@ h1 {
 
 #timeremaining {
     font-size: large;
-    margin-top: 8%;
+    margin-top: 5%;
+    margin-bottom: 5%;
     text-align: center;
 }
 
@@ -49,7 +52,8 @@ h1 {
 }
 
 #answers {
-    margin-top: 5%;
+    margin-top: 4%;
+    text-align: center;
 }
 
 #startover {
