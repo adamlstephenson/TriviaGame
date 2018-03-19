@@ -2,7 +2,7 @@
 //=============================================================
 $("document").ready(function() {
 
-var position = 0; 
+var position = 0;
 var test;
 var test_status; 
 var question;
@@ -14,6 +14,7 @@ var choiceC;
 var choiceD;
 var correct = 0;
 var incorrect = 0;
+var timeRemaining = 30;
 
 var questionList = [{
     question: "What is the only species of trout native to Minnesota?",
@@ -69,10 +70,20 @@ var questionList = [{
 ];
 
 function showQuestion () {
+    if(position >= questionList.length) {
+        $("#timeremaining").hide();
+        $("#q1").hide();
+        $("#q2").hide();
+        $("#q3").hide();
+        $("#q4").hide();
+        $("#submit").hide();
+        $("#questions").text("You got " + correct + " questions right and " + incorrect + " wrong.");
+        $("#startover").html("<h3>Start Over</h3>");
+    }
     for(i = 0; i < questionList.length; i++) {
-    question = questionList[0].question.toString();
-    answer = questionList[0].answers;
-    rightAnswer = questionList[0].correctAnswer;
+    question = questionList[position].question.toString();
+    answer = questionList[position].answers;
+    rightAnswer = questionList[position].correctAnswer;
         choiceA = answer[0];
         choiceB = answer[1];
         choiceC = answer[2];
@@ -98,30 +109,40 @@ function checkAnswer() {
         console.log(choice)
         if (choice === rightAnswer) {
             correct++;
+            position++;
+            showQuestion();
         }
         else {
             incorrect++;
+            position++;
+            showQuestion();
         }
 
     })
 }
+
+var questionTimer = setInterval(function(){
+    console.log(timeRemaining);
+    timeRemaining--;
+    if (timeRemaining <= 0) {
+        clearInterval(questionTimer)
+    }
+  }, 1000);
 
 
 
 
 $("#start").on("click", function() {
     $("#start").hide();
-   // $("#timeremaining").text("Time Remaining: " + questionTimer + " seconds");
+   $("#timeremaining").text("Time Remaining: " + timeRemaining + " seconds");
     showQuestion();
     checkAnswer();
         })
 
 
-
-
 });
 
-    // var timeRemaining = 30;
+// var timeRemaining = 30;
 // var questionArray = [];
 // var answerArray = [];
 // var correctAnswers;
@@ -129,14 +150,7 @@ $("#start").on("click", function() {
 // var unanswered;
 // var currentQuestion = 0;
 
-// var timeRemaining = 30;
-// var questionTimer = setInterval(function(){
-//     console.log(timeRemaining);
-//     timeRemaining--;
-//     if (timeRemaining <= 0) {
-//         clearInterval(questionTimer)
-//     }
-//   }, 1000);
+
 
 // // Question/Answer Objects
 // // =============================================================
@@ -145,35 +159,6 @@ $("#start").on("click", function() {
 // // Functions
 // //==================================================
 
-// function showQuestions() {
-//     for(i = 0; i < questionList.length; i++) {
-//         questionToPrint = questionList[i].question.toString();
-//         $("<p>")
-//         .text(questionToPrint)
-//         .appendTo($("#questions"))  
-//         answerToPrint = (questionList[i].answers)
-//         $("<button>")
-//         .addClass("answersYo")
-//         .attr("id", "a")
-//         .text(answerToPrint[0])
-//         .appendTo($("#questions"))
-//         $("<button>")
-//         .addClass("answersYo")
-//         .attr("id", "b")
-//         .text(answerToPrint[1])
-//         .appendTo($("#questions"))
-//         $("<button>")
-//         .addClass("answersYo")
-//         .attr("id", "c")
-//         .text(answerToPrint[2])
-//         .appendTo($("#questions"))
-//         $("<button>")
-//         .addClass("answersYo")
-//         .attr("id", "d")
-//         .text(answerToPrint[3])
-//         .appendTo($("#questions"))
-//     }
-// };
 
 // Game Process
 //======================================================
