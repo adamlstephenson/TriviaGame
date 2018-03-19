@@ -84,7 +84,7 @@ function showQuestion () {
         position = 0;
         correct = 0;
         incorrect = 0;
-        return false;
+       
     }
     for(i = 0; i < questionList.length; i++) {
     question = questionList[position].question.toString();
@@ -141,7 +141,7 @@ function checkAnswer() {
             $("#startover").html("<h3>Start Over</h3>");
             return false;
         }
-        $("#timeremaining").text("Time Remaining: " + timeRemaining + " secondz");
+        $("#timeremaining").text("Time Remaining: " + timeRemaining + " seconds");
     }
 
     function reset() {
