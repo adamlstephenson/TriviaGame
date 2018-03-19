@@ -141,7 +141,7 @@ function checkAnswer() {
             $("#startover").html("<h3>Start Over</h3>");
             return false;
         }
-        $("#timeremaining").text("Time Remaining: " + timeRemaining + " seconds");
+        $("#timeremaining").text("Time Remaining: " + timeRemaining + " secondz");
     }
 
     function reset() {
