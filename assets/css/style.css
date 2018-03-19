@@ -17,7 +17,7 @@ h1 {
 }
 
 #maincontainer {
-    background-color: khaki;
+    background-color: wheat;
     margin-left: 7.5%;
     margin-top: 2%;
     padding-bottom: 27%;
@@ -46,6 +46,10 @@ h1 {
     margin-top: 2%;
     text-align: center;
 
+}
+
+#answers {
+    margin-top: 5%;
 }
 
 #startover {

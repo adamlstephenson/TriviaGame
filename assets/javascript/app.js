@@ -15,7 +15,7 @@ var choiceC;
 var choiceD;
 var correct = 0;
 var incorrect = 0;
-var timeRemaining = 30;
+var timeRemaining = 61;
 
 var questionList = [{
     question: "What is the only species of trout native to Minnesota?",
@@ -69,14 +69,6 @@ var questionList = [{
     },
 
 ];
-
-var questionTimer = setInterval(function(){
-    console.log(timeRemaining);
-    timeRemaining--;
-    if (timeRemaining <= 0) {
-        clearInterval(questionTimer)
-    }
-  }, 1000);
 
 // Functions
 //==============================================================================================
@@ -137,8 +129,21 @@ function checkAnswer() {
     })
 }
 
-    function gameReset() {
-        
+    function timer() {
+        timeRemaining--;
+        if(timeRemaining <= 0) {
+            clearInterval(timer)
+            $("#timeremaining").hide();
+            $("#q1").hide();
+            $("#q2").hide();
+            $("#q3").hide();
+            $("#q4").hide();
+            $("#submit").hide();
+            $("#questions").text("You got " + correct + " questions right and " + incorrect + " wrong.");
+            $("#startover").html("<h3>Start Over</h3>");
+            return false;
+        }
+        $("#timeremaining").text("Time Remaining: " + timeRemaining + " seconds");
     }
 
 // Game Process
@@ -147,7 +152,8 @@ function checkAnswer() {
 
 $("#start").on("click", function() {
     $("#start").hide();
-   $("#timeremaining").text("Time Remaining: " + timeRemaining + " seconds");
+    timer();
+    counter = setInterval(timer, 1000);
     showQuestion();
     checkAnswer();
 })
@@ -161,23 +167,3 @@ $(("#startover")).on("click", function() {
 
 
 });
-
-
-// 1. Page loads with start button
-// 2. Start button disappears
-// 3. Game begins
-//     a. Timer starts
-//         b. if expired - lose
-//     b. Question appears
-//     c. answers choices appear
-// 4. Player chooses answer
-//     a. if correct - alert, display correct answer (maybe photo), add to correct total
-//     b. if wrong - alert, display correct answer (maybe photo), add to incorrect list
-// 5. Wait 7 seconds
-// 6. Go to next question
-// 7. Repeat game again
-// 8. After 10 questions
-//     a. Show how they did - correct, incorrect, unanswered
-//     b. Click option to restart game without refreshing
-
-//     */
