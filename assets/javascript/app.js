@@ -146,8 +146,12 @@ function checkAnswer() {
 
     function reset() {
         $(("#startover")).on("click", function() {
-            $("#startover").hide();
-            showQuestion(); 
+            $("#timeremaining").show();
+            $("#q1").show();
+            $("#q2").show();
+            $("#q3").show();
+            $("#q4").show();
+            $("#submit").show(); 
         })
     };
 
